@@ -67,6 +67,7 @@ body {
   font-weight: 600;
   padding: 0 100px;
   color: #fff;
+  background-color: #000;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -78,24 +79,70 @@ h1, h2 {
   font-family: Lora;
 }
 
-.text-L {
-  font-size: 64px;
-}
-
 .font-2 {
   font-family: Lora;
 }
 
-.bg-bright {
-  background-color: #fff;
+.text-L {
+  font-size: 64px;
+}
+
+.text-M {
+  font-size: 32px;
 }
 
 .text-dark {
   color: #000;
 }
 
-.text-M {
-  font-size: 32px;
+.text-transparent-stroke {
+  -webkit-text-stroke: 2px #fff;
+  color: transparent;
+}
+
+.bg-bright {
+  background-color: #fff;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  padding: 16px 24px;
+  background-color: #000;
+  font-size: 1.25rem;
+  border: 1px solid #fff;
+}
+
+.hero {
+  height: 100vh;
+  text-align: center;
+  padding-bottom: 100px;
+  justify-content: space-between;
+}
+.hero .line {
+  width: 4px;
+  flex: 1;
+  background-color: #222222;
+  text-align: center;
+  margin: 0 auto;
+}
+.hero article {
+  margin: 100px 0;
+}
+.hero article h1 {
+  padding: 16px;
+  line-height: 0.8em;
+}
+.hero article h1 span {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

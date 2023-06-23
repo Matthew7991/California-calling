@@ -22,12 +22,16 @@ $color-grey: #222222;
 
 $spacing-L: 100px;
 $spacing-M: 64px;
+$spacing-S: 24px;
+$spacing-XS: 16px;
+$spacing-XXS: 8px;
 
 body {
   font-family: $font-1;
   font-weight: $font-weight-default;
   padding: 0 $spacing-L;
-  color: #fff;
+  color: $color-white;
+	background-color: $color-black;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -39,26 +43,79 @@ h1, h2 {
 	font-family: $font-2;
 }
 
-.text-L {
-	font-size: $text-L;
-}
-
-.btn {
-
-}
-
 .font-2 {
 	font-family: $font-2;
 }
 
-.bg-bright {
-	background-color: $color-white;
+.text-L {
+	font-size: $text-L;
+}
+
+.text-M {
+	font-size: $text-M;
 }
 
 .text-dark {
 	color: $color-black;
 }
 
-.text-M {
-	font-size: $text-M;
+.text-transparent-stroke {
+	-webkit-text-stroke: 2px $color-white;
+	color: transparent;
+}
+
+.bg-bright {
+	background-color: $color-white;
+}
+
+.flex-between {
+	display: flex;
+	justify-content: space-between;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.btn {
+	padding: $spacing-XS $spacing-S;
+	background-color: $color-black;
+	font-size: 1.25rem;
+	border: 1px solid $color-white;
+}
+
+// =============================================
+// 											Hero
+// =============================================
+
+.hero {
+	height: 100vh;
+	text-align: center;
+	padding-bottom: $spacing-L;
+	justify-content: space-between;
+
+	.line {
+		width: 4px;
+		flex: 1;
+		// What was his goald with the line is he happy with it ?
+		// height: 33vh;
+		background-color: $color-grey;
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	article {
+		// can remove if line shouldn't be as big and set % height on .line
+		margin: $spacing-L 0;
+		h1 {
+			padding: $spacing-XS;
+			// how to handle this spacing? Should Design be changed or could i do something ?
+			line-height: 0.8em;
+
+			span {
+				display: block;
+			}
+		}
+	}
 }
