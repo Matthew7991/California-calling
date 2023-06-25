@@ -102,7 +102,7 @@ h1, h2 {
 	.line {
 		width: 4px;
 		flex: 1;
-		// What was his goald with the line is he happy with it ?
+		// What is the goal with the line.
 		// height: 33vh;
 		background-color: $color-grey;
 		text-align: center;
@@ -112,6 +112,7 @@ h1, h2 {
 	article {
 		// can remove if line shouldn't be as big and set % height on .line
 		margin: $spacing-L 0;
+
 		h1 {
 			padding: $spacing-XS;
 			// how to handle this spacing? Should Design be changed or could i do something ?
@@ -177,36 +178,99 @@ h1, h2 {
 
 			img {
 				position: absolute;
+
+				&:nth-of-type(1) {
+					top: -100px;
+					right: 20%;
+				}
+				&:nth-of-type(2) {
+					top: 15%;
+					left: 2%;
+				}
+				&:nth-of-type(3) {
+					top: 30%;
+					right: 0; 
+				}
+				&:nth-of-type(4) {
+					top: 50%;
+					left: 20%;
+				}
+				&:nth-of-type(5) {
+					top: 55%;
+					right: 20%;
+				}
+				&:nth-of-type(6) {
+					top: 72%;
+					left: 0;
+				}
+				&:nth-of-type(7) {
+					bottom: -100px;
+					right: 20%;
+				}
 			}
 
-			img:nth-of-type(1) {
-				top: -100px;
-				right: 20%;
+		}
+	}
+}
+
+// =============================================
+// 											goldenBear
+// =============================================
+
+.goldenBear {
+	padding-top: calc($spacing-L * 2 + $spacing-S);
+
+	article {
+		display: flex;
+		gap: 80px;
+		margin-bottom: $spacing-M;
+
+		& > * {
+			width: 50%;
+		}
+
+		.heading {
+
+			h2 {
+				width: 50%;
+				line-height: 0.8em;
+				margin-top: $spacing-S;
 			}
-			img:nth-of-type(2) {
-				top: 15%;
-				left: 2%;
+		}
+		
+		.text {
+			
+			p {
+				padding-right: $spacing-M;
 			}
-			img:nth-of-type(3) {
-				top: 30%;
-				right: 0; 
+
+			.author {
+				margin-top: $spacing-S;
 			}
-			img:nth-of-type(4) {
-				top: 50%;
-				left: 20%;
+		}
+	}
+
+	.images {
+		display: flex;
+		align-items: center;
+
+		img {
+			// width: 50%;
+			min-width: 10px;
+			position: relative;
+
+			&:nth-of-type(1) {
+				left: 50px;
 			}
-			img:nth-of-type(5) {
-				top: 55%;
-				right: 20%;
-			}
-			img:nth-of-type(6) {
-				top: 72%;
-				left: 0;
-			}
-			img:nth-of-type(7) {
-				bottom: -100px;
-				right: 20%;
+
+			&:nth-of-type(2) {
+				height: 66%;
+				right: 50px;
 			}
 		}
 	}
 }
+
+// =============================================
+// 											poppyBear
+// =============================================

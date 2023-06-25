@@ -217,4 +217,42 @@ h1, h2 {
   right: 20%;
 }
 
+.goldenBear {
+  padding-top: 224px;
+}
+.goldenBear article {
+  display: flex;
+  gap: 80px;
+  margin-bottom: 64px;
+}
+.goldenBear article > * {
+  width: 50%;
+}
+.goldenBear article .heading h2 {
+  width: 50%;
+  line-height: 0.8em;
+  margin-top: 24px;
+}
+.goldenBear article .text p {
+  padding-right: 64px;
+}
+.goldenBear article .text .author {
+  margin-top: 24px;
+}
+.goldenBear .images {
+  display: flex;
+  align-items: center;
+}
+.goldenBear .images img {
+  min-width: 10px;
+  position: relative;
+}
+.goldenBear .images img:nth-of-type(1) {
+  left: 50px;
+}
+.goldenBear .images img:nth-of-type(2) {
+  height: 66%;
+  right: 50px;
+}
+
 /*# sourceMappingURL=style.css.map */
