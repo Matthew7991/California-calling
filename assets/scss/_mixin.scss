@@ -1,0 +1,33 @@
+@use "./variable";
+
+@mixin article {
+  article {
+  display: flex;
+  gap: 80px;
+  margin-bottom: variable.$spacing-M;
+
+  & > * {
+    width: 50%;
+  }
+
+  .heading {
+
+    h2 {
+      width: 50%;
+      line-height: 0.8em;
+      margin-top: variable.$spacing-S;
+    }
+  }
+  
+  .text {
+    
+    p {
+      padding-right: variable.$spacing-M;
+    }
+
+    .author {
+      margin-top: variable.$spacing-S;
+    }
+  }
+}
+}

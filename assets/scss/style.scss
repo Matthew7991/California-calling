@@ -1,75 +1,57 @@
 @use "./reset";
+@use "./mixin";
+@use "./variable";
 
 @font-face {
   font-family: Lora;
   src: url(../fonts/Lora/Lora-VariableFont_wght.ttf);
 }
 
-// vars
-$font-1: WorkSans;
-$font-2: Lora;
-$font-weight-default: 600;
-
-$text-XL: 88px;
-$text-L: 64px;
-$text-M: 32px;
-$text-S: 16px;
-
-$color-black: #000;
-$color-white: #fff;
-$color-white-transparent: rgba(255, 255, 255, 0.2);
-$color-grey: #222222;
-
-$spacing-L: 100px;
-$spacing-M: 64px;
-$spacing-S: 24px;
-$spacing-XS: 16px;
-$spacing-XXS: 8px;
-
 body {
-  font-family: $font-1;
-  font-weight: $font-weight-default;
-  color: $color-white;
-	background-color: $color-black;
+  font-family: variable.$font-1;
+  font-weight: variable.$font-weight-default;
+  color: variable.$color-white;
+	background-color: variable.$color-black;
+	// overflow: hidden;
 }
 
 section {
-	padding: 0 $spacing-L;
+	padding: 0 variable.$spacing-L;
 }
 
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $font-weight-default;
+  font-weight: variable.$font-weight-default;
 }
 
 h1, h2 {
-	font-size: $text-XL;
-	font-family: $font-2;
+	font-size: variable.$text-XL;
+	font-family: variable.$font-2;
 }
 
 .font-2 {
-	font-family: $font-2;
+	font-family: variable.$font-2;
 }
 
 .text-L {
-	font-size: $text-L;
+	font-size: variable.$text-L;
 }
 
 .text-M {
-	font-size: $text-M;
+	font-size: variable.$text-M;
 }
 
 .text-dark {
-	color: $color-black;
+	color: variable.$color-black;
 }
 
 .text-transparent-stroke {
-	-webkit-text-stroke: 2px $color-white;
+	-webkit-text-stroke: 2px variable.$color-white;
 	color: transparent;
 }
 
 .bg-bright {
-	background-color: $color-white;
+	background-color: variable.$color-white;
 }
 
 .flex-between {
@@ -83,10 +65,10 @@ h1, h2 {
 }
 
 .btn {
-	padding: $spacing-XS $spacing-S;
-	background-color: $color-black;
+	padding: variable.$spacing-XS variable.$spacing-S;
+	background-color: variable.$color-black;
 	font-size: 1.25rem;
-	border: 1px solid $color-white;
+	border: 1px solid variable.$color-white;
 }
 
 // =============================================
@@ -96,7 +78,7 @@ h1, h2 {
 .hero {
 	height: 100vh;
 	text-align: center;
-	padding-bottom: $spacing-L;
+	padding-bottom: variable.$spacing-L;
 	justify-content: space-between;
 
 	.line {
@@ -104,17 +86,17 @@ h1, h2 {
 		flex: 1;
 		// What is the goal with the line.
 		// height: 33vh;
-		background-color: $color-grey;
+		background-color: variable.$color-grey;
 		text-align: center;
 		margin: 0 auto;
 	}
 
 	article {
 		// can remove if line shouldn't be as big and set % height on .line
-		margin: $spacing-L 0;
+		margin: variable.$spacing-L 0;
 
 		h1 {
-			padding: $spacing-XS;
+			padding: variable.$spacing-XS;
 			// how to handle this spacing? Should Design be changed or could i do something ?
 			line-height: 0.8em;
 
@@ -130,22 +112,22 @@ h1, h2 {
 // =============================================
 
 .info {
-	margin: $spacing-L 0;
+	margin: variable.$spacing-L 0;
 	padding-right: 0;
 
 	h2 {
-		padding-right: calc($spacing-L * 2);
+		padding-right: calc(variable.$spacing-L * 2);
 	}
 
 	& > *:not(:first-child) {
-		padding-top: $spacing-M;
+		padding-top: variable.$spacing-M;
 	}
 
 	.stats {
 	background: url(../img/map.svg) bottom right / auto  no-repeat;
 	
 		& > *:not(:first-child) {
-			padding-top: $spacing-M;
+			padding-top: variable.$spacing-M;
 		}
 	}
 }
@@ -161,7 +143,7 @@ h1, h2 {
 	
 	article {
 		width: 50%;
-		padding: calc($spacing-L * 4) 0;
+		padding: calc(variable.$spacing-L * 4) 0;
 
 		.gallery {
 			display: grid;
@@ -218,44 +200,15 @@ h1, h2 {
 // =============================================
 
 .goldenBear {
-	padding-top: calc($spacing-L * 2 + $spacing-S);
+	padding-top: calc(variable.$spacing-L * 2 + variable.$spacing-S);
 
-	article {
-		display: flex;
-		gap: 80px;
-		margin-bottom: $spacing-M;
-
-		& > * {
-			width: 50%;
-		}
-
-		.heading {
-
-			h2 {
-				width: 50%;
-				line-height: 0.8em;
-				margin-top: $spacing-S;
-			}
-		}
-		
-		.text {
-			
-			p {
-				padding-right: $spacing-M;
-			}
-
-			.author {
-				margin-top: $spacing-S;
-			}
-		}
-	}
-
+	@include mixin.article();
+	
 	.images {
 		display: flex;
-		align-items: center;
+		align-items: end;
 
 		img {
-			// width: 50%;
 			min-width: 10px;
 			position: relative;
 
@@ -266,6 +219,8 @@ h1, h2 {
 			&:nth-of-type(2) {
 				height: 66%;
 				right: 50px;
+				margin-bottom: calc(variable.$spacing-L - 10px);
+
 			}
 		}
 	}
@@ -274,3 +229,42 @@ h1, h2 {
 // =============================================
 // 											poppyBear
 // =============================================
+
+.poppyBear {
+	margin-top: calc(variable.$spacing-L * -1);
+	padding: calc(variable.$spacing-L * 4) variable.$spacing-L variable.$spacing-L;
+	position: relative;
+	z-index: -1;
+	overflow: hidden;
+
+
+	@include mixin.article();
+
+	& > img {
+		width: 400px;
+		position: absolute;
+		right: -120px;
+		top: -120px;
+	}
+
+	.images {
+		display: flex;
+		align-items: center;
+
+		img {
+			min-width: 10px;
+			position: relative;
+
+			&:nth-of-type(1) {
+				left: 50px;
+				height: 66%;
+				z-index: 1;
+			}
+
+			&:nth-of-type(2) {
+				right: 50px;
+
+			}
+		}
+	}
+}

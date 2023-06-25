@@ -241,7 +241,7 @@ h1, h2 {
 }
 .goldenBear .images {
   display: flex;
-  align-items: center;
+  align-items: end;
 }
 .goldenBear .images img {
   min-width: 10px;
@@ -252,6 +252,56 @@ h1, h2 {
 }
 .goldenBear .images img:nth-of-type(2) {
   height: 66%;
+  right: 50px;
+  margin-bottom: 90px;
+}
+
+.poppyBear {
+  margin-top: -100px;
+  padding: 400px 100px 100px;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+.poppyBear article {
+  display: flex;
+  gap: 80px;
+  margin-bottom: 64px;
+}
+.poppyBear article > * {
+  width: 50%;
+}
+.poppyBear article .heading h2 {
+  width: 50%;
+  line-height: 0.8em;
+  margin-top: 24px;
+}
+.poppyBear article .text p {
+  padding-right: 64px;
+}
+.poppyBear article .text .author {
+  margin-top: 24px;
+}
+.poppyBear > img {
+  width: 400px;
+  position: absolute;
+  right: -120px;
+  top: -120px;
+}
+.poppyBear .images {
+  display: flex;
+  align-items: center;
+}
+.poppyBear .images img {
+  min-width: 10px;
+  position: relative;
+}
+.poppyBear .images img:nth-of-type(1) {
+  left: 50px;
+  height: 66%;
+  z-index: 1;
+}
+.poppyBear .images img:nth-of-type(2) {
   right: 50px;
 }
 
