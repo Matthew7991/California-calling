@@ -46,7 +46,7 @@ h1, h2 {
 }
 
 .text-transparent-stroke {
-	-webkit-text-stroke: 2px variable.$color-white;
+	-webkit-text-stroke: 1px variable.$color-white;
 	color: transparent;
 }
 
@@ -265,6 +265,68 @@ h1, h2 {
 				right: 50px;
 
 			}
+		}
+	}
+}
+
+// =============================================
+// 											Footer / Join Us
+// =============================================
+
+.join {
+	padding: variable.$spacing-L;
+	position: relative;
+	overflow: hidden;
+
+	.banner {
+		position: absolute;
+		transform: rotate(45deg);
+		right: -282px;
+		top: 200px;
+
+		* {
+			font-size: variable.$text-XL;
+		}
+
+		.text-transparent-stroke {
+			-webkit-text-stroke-color: variable.$color-black;
+		}
+	}
+
+	article {
+		width: calc((100% - 80px) / 2);
+
+		*:not(:first-child) {
+			margin-top: variable.$spacing-S;
+		}
+	}
+
+	.footer {
+		margin-top: variable.$spacing-M;
+		display: flex;
+		justify-content: space-between;
+
+		.footer-left {
+
+			& > *:not(:first-child) {
+				margin-top: variable.$spacing-XXS;
+	
+			}
+
+			.socials {
+				display: flex;
+				gap: variable.$spacing-XXS;
+
+				img {
+					height: 20px;
+				}
+			}
+		}
+		
+
+		.footer-right {
+			display: flex;
+			align-items: end;
 		}
 	}
 }

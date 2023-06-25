@@ -99,7 +99,7 @@ h1, h2 {
 }
 
 .text-transparent-stroke {
-  -webkit-text-stroke: 2px #fff;
+  -webkit-text-stroke: 1px #fff;
   color: transparent;
 }
 
@@ -303,6 +303,49 @@ h1, h2 {
 }
 .poppyBear .images img:nth-of-type(2) {
   right: 50px;
+}
+
+.join {
+  padding: 100px;
+  position: relative;
+  overflow: hidden;
+}
+.join .banner {
+  position: absolute;
+  transform: rotate(45deg);
+  right: -282px;
+  top: 200px;
+}
+.join .banner * {
+  font-size: 88px;
+}
+.join .banner .text-transparent-stroke {
+  -webkit-text-stroke-color: #000;
+}
+.join article {
+  width: calc((100% - 80px) / 2);
+}
+.join article *:not(:first-child) {
+  margin-top: 24px;
+}
+.join .footer {
+  margin-top: 64px;
+  display: flex;
+  justify-content: space-between;
+}
+.join .footer .footer-left > *:not(:first-child) {
+  margin-top: 8px;
+}
+.join .footer .footer-left .socials {
+  display: flex;
+  gap: 8px;
+}
+.join .footer .footer-left .socials img {
+  height: 20px;
+}
+.join .footer .footer-right {
+  display: flex;
+  align-items: end;
 }
 
 /*# sourceMappingURL=style.css.map */
