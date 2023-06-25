@@ -65,9 +65,12 @@ ol {
 body {
   font-family: WorkSans;
   font-weight: 600;
-  padding: 0 100px;
   color: #fff;
   background-color: #000;
+}
+
+section {
+  padding: 0 100px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -143,6 +146,23 @@ h1, h2 {
 }
 .hero article h1 span {
   display: block;
+}
+
+.info {
+  margin: 100px 0;
+  padding-right: 0;
+}
+.info h2 {
+  padding-right: 200px;
+}
+.info > *:not(:first-child) {
+  padding-top: 64px;
+}
+.info .stats {
+  background: url(../img/map.svg) bottom right/auto no-repeat;
+}
+.info .stats > *:not(:first-child) {
+  padding-top: 64px;
 }
 
 /*# sourceMappingURL=style.css.map */

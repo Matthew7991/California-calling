@@ -29,10 +29,14 @@ $spacing-XXS: 8px;
 body {
   font-family: $font-1;
   font-weight: $font-weight-default;
-  padding: 0 $spacing-L;
   color: $color-white;
 	background-color: $color-black;
 }
+
+section {
+	padding: 0 $spacing-L;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: $font-weight-default;
@@ -116,6 +120,31 @@ h1, h2 {
 			span {
 				display: block;
 			}
+		}
+	}
+}
+
+// =============================================
+// 											Info
+// =============================================
+
+.info {
+	margin: $spacing-L 0;
+	padding-right: 0;
+
+	h2 {
+		padding-right: calc($spacing-L * 2);
+	}
+
+	& > *:not(:first-child) {
+		padding-top: $spacing-M;
+	}
+
+	.stats {
+	background: url(../img/map.svg) bottom right / auto  no-repeat;
+	
+		& > *:not(:first-child) {
+			padding-top: $spacing-M;
 		}
 	}
 }
