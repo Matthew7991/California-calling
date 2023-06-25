@@ -65,10 +65,16 @@ h1, h2 {
 }
 
 .btn {
-	padding: variable.$spacing-XS variable.$spacing-S;
+	padding: variable.$spacing-XS calc(variable.$spacing-XS * 2);
 	background-color: variable.$color-black;
 	font-size: 1.25rem;
 	border: 1px solid variable.$color-white;
+	transition: all 500ms linear;
+
+	&:hover {
+		color: variable.$color-black;
+		background-color: variable.$color-white;
+	}
 }
 
 // =============================================
@@ -116,7 +122,8 @@ h1, h2 {
 	padding-right: 0;
 
 	h2 {
-		padding-right: calc(variable.$spacing-L * 2);
+		padding-right: calc(variable.$spacing-L * 3);
+		padding-bottom: variable.$spacing-M;
 	}
 
 	& > *:not(:first-child) {
@@ -245,6 +252,17 @@ h1, h2 {
 		position: absolute;
 		right: -120px;
 		top: -120px;
+		animation: rotate 12s linear infinite;
+
+		@keyframes rotate {
+			0% {
+				transform: rotate(0deg)
+			};
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
 	}
 
 	.images {
@@ -281,8 +299,10 @@ h1, h2 {
 	.banner {
 		position: absolute;
 		transform: rotate(45deg);
-		right: -282px;
-		top: 200px;
+		right: -1180px;
+		top: 630px;
+		white-space: nowrap;
+		animation: move 12s linear infinite alternate;
 
 		* {
 			font-size: variable.$text-XL;
@@ -291,6 +311,17 @@ h1, h2 {
 		.text-transparent-stroke {
 			-webkit-text-stroke-color: variable.$color-black;
 		}
+
+		@keyframes move {
+			from {
+					transform: rotate(45deg) translateX(0%);
+			}
+			to {
+					transform: rotate(45deg) translateX(-50%);
+			}
+
+
+	}
 	}
 
 	article {

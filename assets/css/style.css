@@ -17,10 +17,6 @@ body {
   min-height: 100%;
 }
 
-body {
-  line-height: 1.5;
-}
-
 img,
 picture,
 video,
@@ -118,10 +114,15 @@ h1, h2 {
 }
 
 .btn {
-  padding: 16px 24px;
+  padding: 16px 32px;
   background-color: #000;
   font-size: 1.25rem;
   border: 1px solid #fff;
+  transition: all 500ms linear;
+}
+.btn:hover {
+  color: #000;
+  background-color: #fff;
 }
 
 .hero {
@@ -153,7 +154,8 @@ h1, h2 {
   padding-right: 0;
 }
 .info h2 {
-  padding-right: 200px;
+  padding-right: 300px;
+  padding-bottom: 64px;
 }
 .info > *:not(:first-child) {
   padding-top: 64px;
@@ -229,7 +231,7 @@ h1, h2 {
   width: 50%;
 }
 .goldenBear article .heading h2 {
-  width: 50%;
+  width: 80%;
   line-height: 0.8em;
   margin-top: 24px;
 }
@@ -272,7 +274,7 @@ h1, h2 {
   width: 50%;
 }
 .poppyBear article .heading h2 {
-  width: 50%;
+  width: 80%;
   line-height: 0.8em;
   margin-top: 24px;
 }
@@ -287,6 +289,15 @@ h1, h2 {
   position: absolute;
   right: -120px;
   top: -120px;
+  animation: rotate 12s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .poppyBear .images {
   display: flex;
@@ -313,14 +324,24 @@ h1, h2 {
 .join .banner {
   position: absolute;
   transform: rotate(45deg);
-  right: -282px;
-  top: 200px;
+  right: -1180px;
+  top: 630px;
+  white-space: nowrap;
+  animation: move 12s linear infinite alternate;
 }
 .join .banner * {
   font-size: 88px;
 }
 .join .banner .text-transparent-stroke {
   -webkit-text-stroke-color: #000;
+}
+@keyframes move {
+  from {
+    transform: rotate(45deg) translateX(0%);
+  }
+  to {
+    transform: rotate(45deg) translateX(-50%);
+  }
 }
 .join article {
   width: calc((100% - 80px) / 2);
