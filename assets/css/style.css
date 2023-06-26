@@ -65,10 +65,6 @@ body {
   background-color: #000;
 }
 
-section {
-  padding: 0 100px;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
@@ -103,16 +99,6 @@ h1, h2 {
   background-color: #fff;
 }
 
-.flex-between {
-  display: flex;
-  justify-content: space-between;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
 .btn {
   padding: 16px 32px;
   background-color: #000;
@@ -128,99 +114,101 @@ h1, h2 {
 .hero {
   height: 100vh;
   text-align: center;
-  padding-bottom: 100px;
-  justify-content: space-between;
+  padding: 0 100px 100px;
+  display: flex;
+  gap: 100px;
+  justify-content: unset;
+  align-items: center;
+  flex-direction: column;
 }
 .hero .line {
   width: 4px;
   flex: 1;
   background-color: #222222;
-  text-align: center;
-  margin: 0 auto;
 }
 .hero article {
-  margin: 100px 0;
+  display: flex;
+  gap: 16px;
+  justify-content: unset;
+  align-items: unset;
+  flex-direction: column;
 }
 .hero article h1 {
-  padding: 16px;
   line-height: 0.8em;
 }
 .hero article h1 span {
   display: block;
 }
+.hero nav {
+  width: 100%;
+  display: flex;
+  gap: unset;
+  justify-content: space-between;
+  align-items: unset;
+  flex-direction: unset;
+}
 
 .info {
-  margin: 100px 0;
-  padding-right: 0;
+  padding: 100px 200px 100px 100px;
+  background: url(../img/map.svg) bottom 100px right no-repeat;
+  background-size: auto calc(486.4px + 3.6rem);
+  display: flex;
+  gap: 64px;
+  justify-content: unset;
+  align-items: unset;
+  flex-direction: column;
 }
 .info h2 {
-  padding-right: 300px;
   padding-bottom: 64px;
-}
-.info > *:not(:first-child) {
-  padding-top: 64px;
-}
-.info .stats {
-  background: url(../img/map.svg) bottom right/auto no-repeat;
-}
-.info .stats > *:not(:first-child) {
-  padding-top: 64px;
 }
 
 .merch {
-  display: flex;
-  justify-content: center;
   position: relative;
+  padding: 400px 25% 240px;
 }
-.merch article {
-  width: 50%;
-  padding: 400px 0;
-}
-.merch article .gallery {
+.merch .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   height: 700px;
 }
-.merch article .gallery .img-large {
-  width: 300px;
-}
-.merch article .gallery .img-small {
-  width: 240px;
-}
-.merch article .gallery img {
+.merch .gallery img:nth-of-type(1) {
   position: absolute;
+  width: 300px;
+  inset: -100px 20% auto auto;
 }
-.merch article .gallery img:nth-of-type(1) {
-  top: -100px;
-  right: 20%;
+.merch .gallery img:nth-of-type(2) {
+  position: absolute;
+  width: 240px;
+  inset: 15% auto auto 2%;
 }
-.merch article .gallery img:nth-of-type(2) {
-  top: 15%;
-  left: 2%;
+.merch .gallery img:nth-of-type(3) {
+  position: absolute;
+  width: 240px;
+  inset: 30% 0 auto auto;
 }
-.merch article .gallery img:nth-of-type(3) {
-  top: 30%;
-  right: 0;
+.merch .gallery img:nth-of-type(4) {
+  position: absolute;
+  width: 300px;
+  inset: 50% auto auto 20%;
 }
-.merch article .gallery img:nth-of-type(4) {
-  top: 50%;
-  left: 20%;
+.merch .gallery img:nth-of-type(5) {
+  position: absolute;
+  width: 300px;
+  inset: 55% 20% auto auto;
 }
-.merch article .gallery img:nth-of-type(5) {
-  top: 55%;
-  right: 20%;
+.merch .gallery img:nth-of-type(6) {
+  position: absolute;
+  width: 240px;
+  inset: 72% auto auto 0;
 }
-.merch article .gallery img:nth-of-type(6) {
-  top: 72%;
-  left: 0;
-}
-.merch article .gallery img:nth-of-type(7) {
-  bottom: -100px;
-  right: 20%;
+.merch .gallery img:nth-of-type(7) {
+  position: absolute;
+  width: 300px;
+  inset: auto 20% -100px auto;
 }
 
 .goldenBear {
-  padding-top: 224px;
+  padding: 224px 100px 0;
 }
 .goldenBear article {
   display: flex;
@@ -231,9 +219,11 @@ h1, h2 {
   width: 50%;
 }
 .goldenBear article .heading h2 {
-  width: 80%;
   line-height: 0.8em;
   margin-top: 24px;
+}
+.goldenBear article .heading h2 span {
+  display: block;
 }
 .goldenBear article .text p {
   padding-right: 64px;
@@ -245,6 +235,10 @@ h1, h2 {
   display: flex;
   align-items: end;
 }
+.goldenBear .images .small {
+  height: 66%;
+  z-index: 1;
+}
 .goldenBear .images img {
   min-width: 10px;
   position: relative;
@@ -253,8 +247,9 @@ h1, h2 {
   left: 50px;
 }
 .goldenBear .images img:nth-of-type(2) {
-  height: 66%;
   right: 50px;
+}
+.goldenBear .images img:nth-of-type(2) {
   margin-bottom: 90px;
 }
 
@@ -274,9 +269,11 @@ h1, h2 {
   width: 50%;
 }
 .poppyBear article .heading h2 {
-  width: 80%;
   line-height: 0.8em;
   margin-top: 24px;
+}
+.poppyBear article .heading h2 span {
+  display: block;
 }
 .poppyBear article .text p {
   padding-right: 64px;
@@ -285,10 +282,9 @@ h1, h2 {
   margin-top: 24px;
 }
 .poppyBear > img {
-  width: 400px;
   position: absolute;
-  right: -120px;
-  top: -120px;
+  width: 400px;
+  inset: -120px -120px auto auto;
   animation: rotate 12s linear infinite;
 }
 @keyframes rotate {
@@ -303,14 +299,16 @@ h1, h2 {
   display: flex;
   align-items: center;
 }
+.poppyBear .images .small {
+  height: 66%;
+  z-index: 1;
+}
 .poppyBear .images img {
   min-width: 10px;
   position: relative;
 }
 .poppyBear .images img:nth-of-type(1) {
   left: 50px;
-  height: 66%;
-  z-index: 1;
 }
 .poppyBear .images img:nth-of-type(2) {
   right: 50px;
@@ -323,9 +321,9 @@ h1, h2 {
 }
 .join .banner {
   position: absolute;
+  width: auto;
+  inset: 630px -1180px auto auto;
   transform: rotate(45deg);
-  right: -1180px;
-  top: 630px;
   white-space: nowrap;
   animation: move 12s linear infinite alternate;
 }
@@ -352,7 +350,10 @@ h1, h2 {
 .join .footer {
   margin-top: 64px;
   display: flex;
+  gap: unset;
   justify-content: space-between;
+  align-items: unset;
+  flex-direction: unset;
 }
 .join .footer .footer-left > *:not(:first-child) {
   margin-top: 8px;
@@ -360,13 +361,19 @@ h1, h2 {
 .join .footer .footer-left .socials {
   display: flex;
   gap: 8px;
+  justify-content: unset;
+  align-items: unset;
+  flex-direction: unset;
 }
 .join .footer .footer-left .socials img {
   height: 20px;
 }
 .join .footer .footer-right {
   display: flex;
+  gap: unset;
+  justify-content: unset;
   align-items: end;
+  flex-direction: unset;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,33 +1,88 @@
-@use "./variable";
+@use "./variable" as var;
 
 @mixin article {
   article {
   display: flex;
-  gap: 80px;
-  margin-bottom: variable.$spacing-M;
+  gap: var.$spacing-XM;
+  margin-bottom: var.$spacing-M;
 
-  & > * {
-    width: 50%;
-  }
-
-  .heading {
-
-    h2 {
-      width: 80%;
-      line-height: 0.8em;
-      margin-top: variable.$spacing-S;
+    & > * {
+      width: 50%;
     }
-  }
-  
-  .text {
+
+    .heading {
+      h2 {
+        line-height: 0.8em;
+        margin-top: var.$spacing-S;
+
+        span {
+          display: block;
+        }
+      }
+    }
     
-    p {
-      padding-right: variable.$spacing-M;
-    }
+    .text {
+      p {
+        padding-right: var.$spacing-M;
+      }
 
-    .author {
-      margin-top: variable.$spacing-S;
+      .author {
+        margin-top: var.$spacing-S;
+      }
     }
   }
 }
+
+@mixin img_overlap($align: center, $height: 66%) {
+  .images {
+		display: flex;
+    align-items: ($align);
+
+    .small {
+      height: $height;
+      z-index: 1;
+    }
+
+		img {
+			min-width: 10px;
+			position: relative;
+
+			&:nth-of-type(1) {
+				left: 50px;
+			}
+
+			&:nth-of-type(2) {
+				right: 50px;
+			}
+		}
+	}
+}
+
+@mixin absolute_position($width, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  width: $width;
+  inset: $top $right $bottom $left;
+}
+
+@mixin img_position-list($list...) {
+  @each $i in $list {
+    &:nth-of-type(#{index($list, $i)}) {
+      @include absolute_position(nth($i, 1), nth($i, 2), nth($i, 3), nth($i, 4), nth($i, 5))
+    }
+  }
+}
+
+
+@mixin flex($gap: unset, $justify: unset, $align: unset, $direction: unset) {
+  display: flex;
+  gap: $gap;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@mixin mediaquery($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
 }

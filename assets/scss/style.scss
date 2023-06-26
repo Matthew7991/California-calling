@@ -1,6 +1,6 @@
-@use "./reset";
+@use "./reset"; 
 @use "./mixin";
-@use "./variable";
+@use "./variable" as var;
 
 @font-face {
   font-family: Lora;
@@ -8,72 +8,56 @@
 }
 
 body {
-  font-family: variable.$font-1;
-  font-weight: variable.$font-weight-default;
-  color: variable.$color-white;
-	background-color: variable.$color-black;
-	// overflow: hidden;
+  font-family: var.$font-1;
+  font-weight: var.$font-weight-default;
+  color: var.$color-white;
+	background-color: var.$color-black;
 }
-
-section {
-	padding: 0 variable.$spacing-L;
-}
-
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: variable.$font-weight-default;
+  font-weight: var.$font-weight-default;
 }
 
 h1, h2 {
-	font-size: variable.$text-XL;
-	font-family: variable.$font-2;
+	font-size: var.$text-XL;
+	font-family: var.$font-2;
 }
 
 .font-2 {
-	font-family: variable.$font-2;
+	font-family: var.$font-2;
 }
 
 .text-L {
-	font-size: variable.$text-L;
+	font-size: var.$text-L;
 }
 
 .text-M {
-	font-size: variable.$text-M;
+	font-size: var.$text-M;
 }
 
 .text-dark {
-	color: variable.$color-black;
+	color: var.$color-black;
 }
 
 .text-transparent-stroke {
-	-webkit-text-stroke: 1px variable.$color-white;
+	-webkit-text-stroke: 1px var.$color-white;
 	color: transparent;
 }
 
 .bg-bright {
-	background-color: variable.$color-white;
-}
-
-.flex-between {
-	display: flex;
-	justify-content: space-between;
-}
-
-.flex-column {
-	display: flex;
-	flex-direction: column;
+	background-color: var.$color-white;
 }
 
 .btn {
-	padding: variable.$spacing-XS calc(variable.$spacing-XS * 2);
-	background-color: variable.$color-black;
+	padding: var.$spacing-XS calc(var.$spacing-XS * 2);
+	background-color: var.$color-black;
 	font-size: 1.25rem;
-	border: 1px solid variable.$color-white;
+	border: 1px solid var.$color-white;
 	transition: all 500ms linear;
 
 	&:hover {
-		color: variable.$color-black;
-		background-color: variable.$color-white;
+		color: var.$color-black;
+		background-color: var.$color-white;
 	}
 }
 
@@ -84,32 +68,30 @@ h1, h2 {
 .hero {
 	height: 100vh;
 	text-align: center;
-	padding-bottom: variable.$spacing-L;
-	justify-content: space-between;
+	padding: 0 var.$spacing-L var.$spacing-L;
+	@include mixin.flex(var.$spacing-L, unset, center, column);
 
 	.line {
 		width: 4px;
 		flex: 1;
-		// What is the goal with the line.
-		// height: 33vh;
-		background-color: variable.$color-grey;
-		text-align: center;
-		margin: 0 auto;
+		background-color: var.$color-grey;
 	}
 
 	article {
-		// can remove if line shouldn't be as big and set % height on .line
-		margin: variable.$spacing-L 0;
+		@include mixin.flex(var.$spacing-XS, unset, unset, column);
 
 		h1 {
-			padding: variable.$spacing-XS;
-			// how to handle this spacing? Should Design be changed or could i do something ?
 			line-height: 0.8em;
 
 			span {
 				display: block;
 			}
 		}
+	}
+
+	nav {
+		width: 100%;
+		@include mixin.flex(unset, space-between);
 	}
 }
 
@@ -118,24 +100,13 @@ h1, h2 {
 // =============================================
 
 .info {
-	margin: variable.$spacing-L 0;
-	padding-right: 0;
+	padding: var.$spacing-L calc(var.$spacing-L * 2) var.$spacing-L var.$spacing-L;
+	background: url(../img/map.svg) bottom var.$spacing-L right no-repeat;
+	background-size: auto calc(var.$spacing-M * 4 + var.$text-L * 3 * 1.2 + 3rem * 1.2);
+	@include mixin.flex(var.$spacing-M, unset, unset, column);
 
 	h2 {
-		padding-right: calc(variable.$spacing-L * 3);
-		padding-bottom: variable.$spacing-M;
-	}
-
-	& > *:not(:first-child) {
-		padding-top: variable.$spacing-M;
-	}
-
-	.stats {
-	background: url(../img/map.svg) bottom right / auto  no-repeat;
-	
-		& > *:not(:first-child) {
-			padding-top: variable.$spacing-M;
-		}
+		padding-bottom: var.$spacing-M;
 	}
 }
 
@@ -144,114 +115,64 @@ h1, h2 {
 // =============================================
 
 .merch {
-	display: flex;
-	justify-content: center;
 	position: relative;
+	padding: calc(calc(var.$spacing-L * 4)) 25% calc(var.$spacing-L * 2.4);
 	
-	article {
-		width: 50%;
-		padding: calc(variable.$spacing-L * 4) 0;
-
 		.gallery {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			height: 700px;
 
-			.img-large {
-				width: 300px;
-			}
-
-			.img-small {
-				width: 240px;
-			}
-
 			img {
-				position: absolute;
-
-				&:nth-of-type(1) {
-					top: -100px;
-					right: 20%;
-				}
-				&:nth-of-type(2) {
-					top: 15%;
-					left: 2%;
-				}
-				&:nth-of-type(3) {
-					top: 30%;
-					right: 0; 
-				}
-				&:nth-of-type(4) {
-					top: 50%;
-					left: 20%;
-				}
-				&:nth-of-type(5) {
-					top: 55%;
-					right: 20%;
-				}
-				&:nth-of-type(6) {
-					top: 72%;
-					left: 0;
-				}
-				&:nth-of-type(7) {
-					bottom: -100px;
-					right: 20%;
-				}
+				$img-large: 300px;
+				$img-small: 240px;
+				$img_position-list: (
+					($img-large, -100px, 20%, auto, auto), 
+					($img-small, 15%, auto, auto, 2%), 
+					($img-small, 30%, 0, auto, auto),
+					($img-large, 50%, auto, auto, 20%),
+					($img-large, 55%, 20%, auto, auto),
+					($img-small, 72%, auto, auto, 0),
+					($img-large, auto, 20%, -100px, auto)
+					);
+	
+				@include mixin.img_position-list($img_position-list...)
 			}
-
 		}
 	}
-}
 
 // =============================================
 // 											goldenBear
 // =============================================
 
 .goldenBear {
-	padding-top: calc(variable.$spacing-L * 2 + variable.$spacing-S);
+	padding: calc(var.$spacing-L * 2 + var.$spacing-S) var.$spacing-L 0;
 
 	@include mixin.article();
 	
-	.images {
-		display: flex;
-		align-items: end;
+	@include mixin.img_overlap(end);
 
-		img {
-			min-width: 10px;
-			position: relative;
-
-			&:nth-of-type(1) {
-				left: 50px;
-			}
-
-			&:nth-of-type(2) {
-				height: 66%;
-				right: 50px;
-				margin-bottom: calc(variable.$spacing-L - 10px);
-
+	.images img:nth-of-type(2) {
+				margin-bottom: calc(var.$spacing-L - 10px);
 			}
 		}
-	}
-}
 
 // =============================================
 // 											poppyBear
 // =============================================
 
 .poppyBear {
-	margin-top: calc(variable.$spacing-L * -1);
-	padding: calc(variable.$spacing-L * 4) variable.$spacing-L variable.$spacing-L;
+	margin-top: calc(var.$spacing-L * -1);
+	padding: calc(var.$spacing-L * 4) var.$spacing-L var.$spacing-L;
 	position: relative;
 	z-index: -1;
 	overflow: hidden;
 
-
 	@include mixin.article();
 
 	& > img {
-		width: 400px;
-		position: absolute;
-		right: -120px;
-		top: -120px;
+		$img-offset: 120px;
+		@include mixin.absolute_position(400px, -$img-offset, -$img-offset, auto, auto);
 		animation: rotate 12s linear infinite;
 
 		@keyframes rotate {
@@ -265,26 +186,7 @@ h1, h2 {
 		}
 	}
 
-	.images {
-		display: flex;
-		align-items: center;
-
-		img {
-			min-width: 10px;
-			position: relative;
-
-			&:nth-of-type(1) {
-				left: 50px;
-				height: 66%;
-				z-index: 1;
-			}
-
-			&:nth-of-type(2) {
-				right: 50px;
-
-			}
-		}
-	}
+	@include mixin.img_overlap();
 }
 
 // =============================================
@@ -292,72 +194,63 @@ h1, h2 {
 // =============================================
 
 .join {
-	padding: variable.$spacing-L;
+	padding: var.$spacing-L;
 	position: relative;
 	overflow: hidden;
 
 	.banner {
-		position: absolute;
+		@include mixin.absolute_position(auto, 630px, -1180px, auto, auto);
 		transform: rotate(45deg);
-		right: -1180px;
-		top: 630px;
 		white-space: nowrap;
 		animation: move 12s linear infinite alternate;
 
 		* {
-			font-size: variable.$text-XL;
+			font-size: var.$text-XL;
 		}
 
 		.text-transparent-stroke {
-			-webkit-text-stroke-color: variable.$color-black;
+			-webkit-text-stroke-color: var.$color-black;
 		}
 
 		@keyframes move {
 			from {
 					transform: rotate(45deg) translateX(0%);
 			}
+
 			to {
 					transform: rotate(45deg) translateX(-50%);
 			}
-
-
-	}
+		}
 	}
 
 	article {
-		width: calc((100% - 80px) / 2);
+		width: calc((100% - var.$spacing-XM) / 2);
 
 		*:not(:first-child) {
-			margin-top: variable.$spacing-S;
+			margin-top: var.$spacing-S;
 		}
 	}
 
 	.footer {
-		margin-top: variable.$spacing-M;
-		display: flex;
-		justify-content: space-between;
+		margin-top: var.$spacing-M;
+		@include mixin.flex(unset, space-between);
 
 		.footer-left {
-
 			& > *:not(:first-child) {
-				margin-top: variable.$spacing-XXS;
-	
+				margin-top: var.$spacing-XXS;
 			}
 
 			.socials {
-				display: flex;
-				gap: variable.$spacing-XXS;
+				@include mixin.flex(var.$spacing-XXS);
 
 				img {
 					height: 20px;
 				}
 			}
 		}
-		
 
 		.footer-right {
-			display: flex;
-			align-items: end;
+			@include mixin.flex( unset, unset, end);
 		}
 	}
 }
