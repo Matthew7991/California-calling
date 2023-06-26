@@ -158,6 +158,11 @@ h1, h2 {
   align-items: unset;
   flex-direction: column;
 }
+@media screen and (max-width: 1000px) {
+  .info {
+    padding: 100px 64px 100px 64px;
+  }
+}
 .info h2 {
   padding-bottom: 64px;
 }
@@ -166,9 +171,18 @@ h1, h2 {
   position: relative;
   padding: 400px 25% 240px;
 }
+@media screen and (max-width: 1000px) {
+  .merch {
+    padding: 200px 64px 200px;
+  }
+}
 .merch .gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: unset;
+  flex-direction: unset;
+  flex-wrap: wrap;
   height: 700px;
 }
 .merch .gallery img:nth-of-type(1) {
@@ -205,6 +219,16 @@ h1, h2 {
   position: absolute;
   width: 300px;
   inset: auto 20% -100px auto;
+}
+@media screen and (max-width: 1000px) {
+  .merch .gallery {
+    height: auto;
+    padding: 24px 0;
+  }
+  .merch .gallery img:nth-of-type(n) {
+    width: calc(50% - 12px);
+    position: static;
+  }
 }
 
 .goldenBear {
@@ -251,6 +275,20 @@ h1, h2 {
 }
 .goldenBear .images img:nth-of-type(2) {
   margin-bottom: 90px;
+}
+@media screen and (max-width: 1000px) {
+  .goldenBear {
+    padding: 100px 64px 0;
+  }
+  .goldenBear article {
+    flex-direction: column;
+  }
+  .goldenBear article > * {
+    width: 100%;
+  }
+  .goldenBear article .heading h2 span {
+    display: inline-block;
+  }
 }
 
 .poppyBear {
@@ -312,6 +350,20 @@ h1, h2 {
 }
 .poppyBear .images img:nth-of-type(2) {
   right: 50px;
+}
+@media screen and (max-width: 1000px) {
+  .poppyBear {
+    padding: 100px 64px 0;
+  }
+  .poppyBear article {
+    flex-direction: column;
+  }
+  .poppyBear article > * {
+    width: 100%;
+  }
+  .poppyBear article .heading h2 span {
+    display: inline-block;
+  }
 }
 
 .join {

@@ -7,6 +7,7 @@
   src: url(../fonts/Lora/Lora-VariableFont_wght.ttf);
 }
 
+
 body {
   font-family: var.$font-1;
   font-weight: var.$font-weight-default;
@@ -105,6 +106,10 @@ h1, h2 {
 	background-size: auto calc(var.$spacing-M * 4 + var.$text-L * 3 * 1.2 + 3rem * 1.2);
 	@include mixin.flex(var.$spacing-M, unset, unset, column);
 
+	@include mixin.mediaquery(var.$breakpoint-tablet) {
+	padding: var.$spacing-L var.$spacing-M var.$spacing-L var.$spacing-M;
+
+	}
 	h2 {
 		padding-bottom: var.$spacing-M;
 	}
@@ -117,10 +122,16 @@ h1, h2 {
 .merch {
 	position: relative;
 	padding: calc(calc(var.$spacing-L * 4)) 25% calc(var.$spacing-L * 2.4);
-	
+	@include mixin.mediaquery(var.$breakpoint-tablet) {
+	padding: calc(calc(var.$spacing-L * 2)) var.$spacing-M calc(var.$spacing-L * 2);
+	}
+
+
 		.gallery {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
+			// display: grid;
+			// grid-template-columns: repeat(2, 1fr);
+			@include mixin.flex(var.$spacing-S, center);
+			flex-wrap: wrap;
 			height: 700px;
 
 			img {
@@ -135,11 +146,23 @@ h1, h2 {
 					($img-small, 72%, auto, auto, 0),
 					($img-large, auto, 20%, -100px, auto)
 					);
-	
-				@include mixin.img_position-list($img_position-list...)
+					
+					@include mixin.img_position-list($img_position-list...);
+					
+				}
+
+				@include mixin.mediaquery(var.$breakpoint-tablet) {
+					height: auto;
+					padding: var.$spacing-S 0;
+		
+					img:nth-of-type(n) {
+						width: calc(50% - var.$spacing-S / 2);
+						// max-width: 50%;
+						position: static;
+					}
+				}
 			}
 		}
-	}
 
 // =============================================
 // 											goldenBear
@@ -153,9 +176,24 @@ h1, h2 {
 	@include mixin.img_overlap(end);
 
 	.images img:nth-of-type(2) {
-				margin-bottom: calc(var.$spacing-L - 10px);
+		margin-bottom: calc(var.$spacing-L - 10px);
+	}
+
+	@include mixin.mediaquery(var.$breakpoint-tablet) {
+	padding: var.$spacing-L var.$spacing-M 0;
+		article {
+			flex-direction: column;
+
+			& > * {
+				width: 100%;
 			}
+
+			.heading h2 span {
+				display: inline-block
+			};
 		}
+	}
+}
 
 // =============================================
 // 											poppyBear
@@ -187,6 +225,21 @@ h1, h2 {
 	}
 
 	@include mixin.img_overlap();
+
+	@include mixin.mediaquery(var.$breakpoint-tablet) {
+		padding: var.$spacing-L var.$spacing-M 0;
+			article {
+				flex-direction: column;
+	
+				& > * {
+					width: 100%;
+				}
+	
+				.heading h2 span {
+					display: inline-block
+				};
+			}
+		}
 }
 
 // =============================================
