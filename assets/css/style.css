@@ -158,13 +158,13 @@ h1, h2 {
   align-items: unset;
   flex-direction: column;
 }
+.info h2 {
+  padding-bottom: 64px;
+}
 @media screen and (max-width: 1000px) {
   .info {
     padding: 100px 64px 100px 64px;
   }
-}
-.info h2 {
-  padding-bottom: 64px;
 }
 
 .merch {
@@ -319,20 +319,6 @@ h1, h2 {
 .poppyBear article .text .author {
   margin-top: 24px;
 }
-.poppyBear > img {
-  position: absolute;
-  width: 400px;
-  inset: -120px -120px auto auto;
-  animation: rotate 12s linear infinite;
-}
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 .poppyBear .images {
   display: flex;
   align-items: center;
@@ -350,6 +336,20 @@ h1, h2 {
 }
 .poppyBear .images img:nth-of-type(2) {
   right: 50px;
+}
+.poppyBear > img {
+  position: absolute;
+  width: 400px;
+  inset: -120px -120px auto auto;
+  animation: rotate 12s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 @media screen and (max-width: 1000px) {
   .poppyBear {

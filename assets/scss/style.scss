@@ -7,7 +7,6 @@
   src: url(../fonts/Lora/Lora-VariableFont_wght.ttf);
 }
 
-
 body {
   font-family: var.$font-1;
   font-weight: var.$font-weight-default;
@@ -106,12 +105,12 @@ h1, h2 {
 	background-size: auto calc(var.$spacing-M * 4 + var.$text-L * 3 * 1.2 + 3rem * 1.2);
 	@include mixin.flex(var.$spacing-M, unset, unset, column);
 
-	@include mixin.mediaquery(var.$breakpoint-tablet) {
-	padding: var.$spacing-L var.$spacing-M var.$spacing-L var.$spacing-M;
-
-	}
 	h2 {
 		padding-bottom: var.$spacing-M;
+	}
+
+	@include mixin.mediaquery(var.$breakpoint-tablet) {
+	padding: var.$spacing-L var.$spacing-M var.$spacing-L var.$spacing-M;
 	}
 }
 
@@ -126,10 +125,7 @@ h1, h2 {
 	padding: calc(calc(var.$spacing-L * 2)) var.$spacing-M calc(var.$spacing-L * 2);
 	}
 
-
 		.gallery {
-			// display: grid;
-			// grid-template-columns: repeat(2, 1fr);
 			@include mixin.flex(var.$spacing-S, center);
 			flex-wrap: wrap;
 			height: 700px;
@@ -157,7 +153,6 @@ h1, h2 {
 		
 					img:nth-of-type(n) {
 						width: calc(50% - var.$spacing-S / 2);
-						// max-width: 50%;
 						position: static;
 					}
 				}
@@ -170,9 +165,7 @@ h1, h2 {
 
 .goldenBear {
 	padding: calc(var.$spacing-L * 2 + var.$spacing-S) var.$spacing-L 0;
-
 	@include mixin.article();
-	
 	@include mixin.img_overlap(end);
 
 	.images img:nth-of-type(2) {
@@ -205,8 +198,8 @@ h1, h2 {
 	position: relative;
 	z-index: -1;
 	overflow: hidden;
-
 	@include mixin.article();
+	@include mixin.img_overlap();
 
 	& > img {
 		$img-offset: 120px;
@@ -223,8 +216,6 @@ h1, h2 {
 			}
 		}
 	}
-
-	@include mixin.img_overlap();
 
 	@include mixin.mediaquery(var.$breakpoint-tablet) {
 		padding: var.$spacing-L var.$spacing-M 0;
